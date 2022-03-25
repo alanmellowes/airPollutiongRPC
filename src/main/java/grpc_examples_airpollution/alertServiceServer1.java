@@ -8,19 +8,19 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
-public class alertServiceServer extends alertUserImplBase {
+public class alertServiceServer1 extends alertUserImplBase {
 
-	private static final Logger logger = Logger.getLogger(alertServiceServer.class.getName());
+	private static final Logger logger = Logger.getLogger(alertServiceServer1.class.getName());
 
 	public static void main(String[] args) {
 		
-		alertServiceServer greeterserver = new alertServiceServer();
+		alertServiceServer1 badpollutionserver = new alertServiceServer1();
 		
-		int port = 50059;
+		int port = 50014;
 	    
 		try {
 			Server server = ServerBuilder.forPort(port)
-			    .addService(greeterserver)
+			    .addService(badpollutionserver)
 			    .build()
 			    .start();
 			
@@ -42,11 +42,11 @@ public class alertServiceServer extends alertUserImplBase {
 	}
 	
 	@Override
-	public void WorstAirPollution(WorstRequest request,  StreamObserver<WorstResponse> responseObserver) {
+	public void worstAirPollution(WorstRequest request,  StreamObserver<WorstResponse> responseObserver) {
 		    
-		System.out.println("receiving hello request");
+		System.out.println("receiving country with bad air pollution request");
 		
-		WorstResponse reply = WorstResponse.newBuilder().setCountryInfo("Hello " + request.getCountryName()).build();
+		WorstResponse reply = WorstResponse.newBuilder().setCountryInfo("Country with bad air pollution: " + request.getCountryName()).build();
 	     
 		 responseObserver.onNext(reply);
 	     

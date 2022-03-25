@@ -17,7 +17,7 @@ public class alertServiceClient {
 		  
 	public static void main(String[] args) throws Exception {
 		String host = "localhost";
-		int port = 50051;
+		int port = 50014;
 		
 		ManagedChannel channel = ManagedChannelBuilder.
 				forAddress(host, port)
@@ -29,7 +29,7 @@ public class alertServiceClient {
 		alertServiceClient client = new alertServiceClient();
 	    
 	    try {
-	    	 String countryName = "Paul";
+	    	 String countryName = "Italy";
 	    	 WorstRequest request = WorstRequest.newBuilder().setCountryName(countryName).build();
 	    	 
 	    	 WorstResponse response = blockingStub.worstAirPollution(request);
